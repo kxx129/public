@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コンテンツ一覧（４）</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .fsize {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 300px;
+            height: 100vh;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .catalog ul,
+        .catalog ol {
+            padding: 0;
+        }
+
+        .catalog ul li {
+            position: relative;
+            list-style-type: none !important;
+            /*ポチ消す*/
+            padding: 0.5em 0.5em 0.5em 0.5em;
+            margin-bottom: 5px;
+            line-height: 1.5;
+            background: #dbebf8;
+            vertical-align: middle;
+            color: #505050;
+            border-radius: 15px 0px 0px 15px;
+            /*左側の角丸く*/
+        }
+
+        .catalog ul li:before {
+            display: inline-block;
+            vertical-align: middle;
+            /*以下白丸つくる*/
+            content: '';
+            width: 1em;
+            height: 1em;
+            background: #fff;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .catalog a:link {
+            color: #505050;
+            text-decoration: none;
+        }
+
+        .catalog a:visited {
+            color: #505050;
+            text-decoration: none;
+        }
+
+        .catalog a:hover {
+            color: #505050;
+            text-decoration: none;
+        }
+
+        .catalog a:active {
+            color: #505050;
+            text-decoration: none;
+        }
+
+        .pagination {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .pagination li {
+            margin: 0 5px;
+        }
+        .pagination a {
+            text-decoration: none;
+            padding: 8px 12px;
+            border: 1px solid #007bff;
+            color: #007bff;
+            border-radius: 4px;
+        }
+        .pagination a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .active a {
+            background-color: #007bff;
+            color: white;
+            border: 1px solid #007bff;
+        }
+        .inactive a {
+            pointer-events: none; /* クリックを無効化 */
+            opacity: 0.6; /* 無効の見た目を作る */
+        }
+        .inactive a:hover {
+            background-color: transparent; /* ホバー効果を無効にする */
+            color: #007bff; /* 色を維持 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="catalog">
+            <p class="fsize">コンテンツ一覧（４）</p>
+            <ul>
+                <li><a href="docs_001_076.html">76　広告</a></li>
+                <li><a href="docs_001_077.html">77　販促活動</a></li>
+                <li><a href="docs_001_078.html">78　市場開発</a></li>
+                <li><a href="docs_001_079.html">79　商品展示会</a></li>
+                <li><a href="docs_001_080.html">80　商品のデモンストレーション</a></li>
+                <li><a href="docs_001_081.html">81　顧客サービス</a></li>
+                <li><a href="docs_001_082.html">82　アフターサービス</a></li>
+                <li><a href="docs_001_083.html">83　国際展示会に参加</a></li>
+                <li><a href="docs_001_084.html">84　商談</a></li>
+                <li><a href="docs_001_085.html">85　資材調達</a></li>
+                <li><a href="docs_001_086.html">86　輸出∕輸入</a></li>
+                <li><a href="docs_001_087.html">87　為替レート</a></li>
+                <li><a href="docs_001_088.html">88　M＆A</a></li>
+                <li><a href="docs_001_089.html">89　ライバル</a></li>
+                <li><a href="docs_001_090.html">90　海外ネットワーク</a></li>
+                <li><a href="docs_001_091.html">91　求職</a></li>
+                <li><a href="docs_001_092.html">92　入社面接</a></li>
+                <li><a href="docs_001_093.html">93　求人</a></li>
+                <li><a href="docs_001_094.html">94　転職</a></li>
+                <li><a href="docs_001_095.html">95　福利厚生</a></li>
+                <li><a href="docs_001_096.html">96　労働組合</a></li>
+                <li><a href="docs_001_097.html">97　働く女性</a></li>
+                <li><a href="docs_001_098.html">98　社内研修</a></li>
+                <li><a href="docs_001_099.html">99　昇進</a></li>
+                <li><a href="docs_001_100.html">100　セミナー</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul class="pagination">
+                <li><a href="docs_001_list_03.html">&laquo;</a></li> <!-- 前のページ -->
+                <li class="active"><a href="#">=</a></li>
+                <li class="inactive"><a href="#">&raquo;</a></li> <!-- 次のページ -->
+            </ul
+        </div>
+    </div>
+</body>
+
+</html>

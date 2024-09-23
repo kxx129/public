@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コンテンツ一覧（３）</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .fsize {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 300px;
+            height: 100vh;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .catalog ul,
+        .catalog ol {
+            padding: 0;
+        }
+
+        .catalog ul li {
+            position: relative;
+            list-style-type: none !important;
+            /*ポチ消す*/
+            padding: 0.5em 0.5em 0.5em 0.5em;
+            margin-bottom: 5px;
+            line-height: 1.5;
+            background: #dbebf8;
+            vertical-align: middle;
+            color: #505050;
+            border-radius: 15px 0px 0px 15px;
+            /*左側の角丸く*/
+        }
+
+        .catalog ul li:before {
+            display: inline-block;
+            vertical-align: middle;
+            /*以下白丸つくる*/
+            content: '';
+            width: 1em;
+            height: 1em;
+            background: #fff;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .catalog a:link {
+            color: #505050;
+            text-decoration: none;
+        }
+
+        .catalog a:visited {
+            color: #505050;
+            text-decoration: none;
+        }
+
+        .catalog a:hover {
+            color: #505050;
+            text-decoration: none;
+        }
+
+        .catalog a:active {
+            color: #505050;
+            text-decoration: none;
+        }
+
+        .pagination {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .pagination li {
+            margin: 0 5px;
+        }
+        .pagination a {
+            text-decoration: none;
+            padding: 8px 12px;
+            border: 1px solid #007bff;
+            color: #007bff;
+            border-radius: 4px;
+        }
+        .pagination a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .active a {
+            background-color: #007bff;
+            color: white;
+            border: 1px solid #007bff;
+        }
+        .inactive a {
+            pointer-events: none; /* クリックを無効化 */
+            opacity: 0.6; /* 無効の見た目を作る */
+        }
+        .inactive a:hover {
+            background-color: transparent; /* ホバー効果を無効にする */
+            color: #007bff; /* 色を維持 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="catalog">
+            <p class="fsize">コンテンツ一覧（３）</p>
+            <ul>
+                <li><a href="docs_001_051.html">51　まとめ</a></li>
+                <li><a href="docs_001_052.html">52　準備</a></li>
+                <li><a href="docs_001_053.html">53　紹介∕説明</a></li>
+                <li><a href="docs_001_054.html">54　デモンストレーション</a></li>
+                <li><a href="docs_001_055.html">55　質疑応答</a></li>
+                <li><a href="docs_001_056.html">56　趨勢を見る</a></li>
+                <li><a href="docs_001_057.html">57　ＳＷＯＴ分析</a></li>
+                <li><a href="docs_001_058.html">58　統計報告</a></li>
+                <li><a href="docs_001_059.html">59　発注する</a></li>
+                <li><a href="docs_001_060.html">60　受注する</a></li>
+                <li><a href="docs_001_061.html">61　在庫確認</a></li>
+                <li><a href="docs_001_062.html">62　クレームを付ける</a></li>
+                <li><a href="docs_001_063.html">63　クレームの対処</a></li>
+                <li><a href="docs_001_064.html">64　秘密保持</a></li>
+                <li><a href="docs_001_065.html">65　弁護士</a></li>
+                <li><a href="docs_001_066.html">66　契約</a></li>
+                <li><a href="docs_001_067.html">67　著作権</a></li>
+                <li><a href="docs_001_068.html">68　特許</a></li>
+                <li><a href="docs_001_069.html">69　予算の検討</a></li>
+                <li><a href="docs_001_070.html">70　コストコントロール</a></li>
+                <li><a href="docs_001_071.html">71　資金調達</a></li>
+                <li><a href="docs_001_072.html">72　税金</a></li>
+                <li><a href="docs_001_073.html">73　会計監査</a></li>
+                <li><a href="docs_001_074.html">74　市場調査</a></li>
+                <li><a href="docs_001_075.html">75　ターゲット</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul class="pagination">
+                <li><a href="docs_001_list_02.html">&laquo;</a></li> <!-- 前のページ -->
+                <li class="active"><a href="#">=</a></li>
+                <li><a href="docs_001_list_04.html">&raquo;</a></li> <!-- 次のページ -->
+            </ul
+        </div>
+    </div>
+</body>
+
+</html>
