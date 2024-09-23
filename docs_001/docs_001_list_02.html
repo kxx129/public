@@ -1,94 +1,31 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>コンテンツ一覧（２）</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
         }
-
-        .fsize {
-            font-size: 20px;
-            text-align: center;
-        }
-
-        .container {
-            width: 300px;
-            height: 100vh;
+        .list-container {
+            max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
         }
-
-        h2 {
-            text-align: center;
+        .link-item {
+            padding: 10px;
+            border: 1px solid #ddd;
             margin-bottom: 5px;
-        }
-
-        .catalog ul,
-        .catalog ol {
-            padding: 0;
-        }
-
-        .catalog ul li {
-            position: relative;
-            list-style-type: none !important;
-            /*ポチ消す*/
-            padding: 0.5em 0.5em 0.5em 0.5em;
-            margin-bottom: 5px;
-            line-height: 1.5;
-            background: #dbebf8;
-            vertical-align: middle;
-            color: #505050;
-            border-radius: 15px 0px 0px 15px;
-            /*左側の角丸く*/
-        }
-
-        .catalog ul li:before {
-            display: inline-block;
-            vertical-align: middle;
-            /*以下白丸つくる*/
-            content: '';
-            width: 1em;
-            height: 1em;
-            background: #fff;
-            border-radius: 50%;
-            margin-right: 8px;
-        }
-
-        .catalog a:link {
-            color: #505050;
             text-decoration: none;
+            color: #007bff;
+            display: block;
         }
-
-        .catalog a:visited {
-            color: #505050;
-            text-decoration: none;
+        .link-item:hover {
+            background-color: #f0f0f0;
         }
-
-        .catalog a:hover {
-            color: #505050;
-            text-decoration: none;
-        }
-
-        .catalog a:active {
-            color: #505050;
-            text-decoration: none;
-        }
-
         .pagination {
             display: flex;
+            justify-content: center;
             list-style: none;
             padding: 0;
             margin: 20px 0;
@@ -122,47 +59,43 @@
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="catalog">
-            <p class="fsize">コンテンツ一覧（２）</p>
-            <ul>
-                <li><a href="docs_001_026.html">26　製品ＰＲ</a></li>
-                <li><a href="docs_001_027.html">27　空港</a></li>
-                <li><a href="docs_001_028.html">28　ホテル</a></li>
-                <li><a href="docs_001_029.html">29　交通</a></li>
-                <li><a href="docs_001_030.html">30　食事</a></li>
-                <li><a href="docs_001_031.html">31　お土産</a></li>
-                <li><a href="docs_001_032.html">32 投資の説明</a></li>
-                <li><a href="docs_001_033.html">33　見積もり</a></li>
-                <li><a href="docs_001_034.html">34　価格交渉</a></li>
-                <li><a href="docs_001_035.html">35　交渉成立∕確認</a></li>
-                <li><a href="docs_001_036.html">36　支払条件</a></li>
-                <li><a href="docs_001_037.html">37　契約書の作成</a></li>
-                <li><a href="docs_001_038.html">38　着任∕離任のあいさつ</a></li>
-                <li><a href="docs_001_039.html">39　面談の申し入れ</a></li>
-                <li><a href="docs_001_040.html">40　礼状</a></li>
-                <li><a href="docs_001_041.html">41　招待状</a></li>
-                <li><a href="docs_001_042.html">42　社内通知</a></li>
-                <li><a href="docs_001_043.html">43　社長</a></li>
-                <li><a href="docs_001_044.html">44　株主</a></li>
-                <li><a href="docs_001_045.html">45　取締役会</a></li>
-                <li><a href="docs_001_046.html">46　管理職</a></li>
-                <li><a href="docs_001_047.html">47　部署</a></li>
-                <li><a href="docs_001_048.html">48　準備</a></li>
-                <li><a href="docs_001_049.html">49　進行</a></li>
-                <li><a href="docs_001_050.html">50　打開策を探る</a></li>
-            </ul>
-        </div>
-        <div>
-            <ul class="pagination">
-                <li><a href="docs_001_list_01.html">&laquo;</a></li> <!-- 前のページ -->
-                <li class="active"><a href="#">=</a></li>
-                <li><a href="docs_001_list_03.html">&raquo;</a></li> <!-- 次のページ -->
-            </ul
-        </div>
-    </div>
-</body>
 
+<div class="list-container">
+    <h1>コンテンツ一覧（２）</h1>
+
+    <a href="docs_001_026.html" class="link-item">26　製品ＰＲ</a>
+    <a href="docs_001_027.html" class="link-item">27　空港</a>
+    <a href="docs_001_028.html" class="link-item">28　ホテル</a>
+    <a href="docs_001_029.html" class="link-item">29　交通</a>
+    <a href="docs_001_030.html" class="link-item">30　食事</a>
+    <a href="docs_001_031.html" class="link-item">31　お土産</a>
+    <a href="docs_001_032.html" class="link-item">32 投資の説明</a>
+    <a href="docs_001_033.html" class="link-item">33　見積もり</a>
+    <a href="docs_001_034.html" class="link-item">34　価格交渉</a>
+    <a href="docs_001_035.html" class="link-item">35　交渉成立∕確認</a>
+    <a href="docs_001_036.html" class="link-item">36　支払条件</a>
+    <a href="docs_001_037.html" class="link-item">37　契約書の作成</a>
+    <a href="docs_001_038.html" class="link-item">38　着任∕離任のあいさつ</a>
+    <a href="docs_001_039.html" class="link-item">39　面談の申し入れ</a>
+    <a href="docs_001_040.html" class="link-item">40　礼状</a>
+    <a href="docs_001_041.html" class="link-item">41　招待状</a>
+    <a href="docs_001_042.html" class="link-item">42　社内通知</a>
+    <a href="docs_001_043.html" class="link-item">43　社長</a>
+    <a href="docs_001_044.html" class="link-item">44　株主</a>
+    <a href="docs_001_045.html" class="link-item">45　取締役会</a>
+    <a href="docs_001_046.html" class="link-item">46　管理職</a>
+    <a href="docs_001_047.html" class="link-item">47　部署</a>
+    <a href="docs_001_048.html" class="link-item">48　準備</a>
+    <a href="docs_001_049.html" class="link-item">49　進行</a>
+    <a href="docs_001_050.html" class="link-item">50　打開策を探る</a>
+
+    <ul class="pagination">
+        <li><a href="docs_001_list_01.html">&laquo;</a></li> <!-- 前のページ -->
+        <li class="active"><a href="#">|</a></li>
+        <li><a href="docs_001_list_03.html">&raquo;</a></li> <!-- 次のページ -->
+    </ul>
+</div>
+
+</body>
 </html>
