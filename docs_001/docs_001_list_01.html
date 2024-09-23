@@ -1,94 +1,31 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>コンテンツ一覧（１）</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
         }
-
-        .fsize {
-            font-size: 20px;
-            text-align: center;
-        }
-
-        .container {
-            width: 300px;
-            height: 100vh;
+        .list-container {
+            max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
         }
-
-        h2 {
-            text-align: center;
+        .link-item {
+            padding: 10px;
+            border: 1px solid #ddd;
             margin-bottom: 5px;
-        }
-
-        .catalog ul,
-        .catalog ol {
-            padding: 0;
-        }
-
-        .catalog ul li {
-            position: relative;
-            list-style-type: none !important;
-            /*ポチ消す*/
-            padding: 0.5em 0.5em 0.5em 0.5em;
-            margin-bottom: 5px;
-            line-height: 1.5;
-            background: #dbebf8;
-            vertical-align: middle;
-            color: #505050;
-            border-radius: 15px 0px 0px 15px;
-            /*左側の角丸く*/
-        }
-
-        .catalog ul li:before {
-            display: inline-block;
-            vertical-align: middle;
-            /*以下白丸つくる*/
-            content: '';
-            width: 1em;
-            height: 1em;
-            background: #fff;
-            border-radius: 50%;
-            margin-right: 8px;
-        }
-
-        .catalog a:link {
-            color: #505050;
             text-decoration: none;
+            color: #007bff;
+            display: block;
         }
-
-        .catalog a:visited {
-            color: #505050;
-            text-decoration: none;
+        .link-item:hover {
+            background-color: #f0f0f0;
         }
-
-        .catalog a:hover {
-            color: #505050;
-            text-decoration: none;
-        }
-
-        .catalog a:active {
-            color: #505050;
-            text-decoration: none;
-        }
-
         .pagination {
             display: flex;
+            justify-content: center;
             list-style: none;
             padding: 0;
             margin: 20px 0;
@@ -122,47 +59,43 @@
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="catalog">
-            <p class="fsize">コンテンツ一覧（１）</p>
-            <ul>
-                <li><a href="docs_001_001.html">1　出社時のあいさつ</a></li>
-                <li><a href="docs_001_002.html">2　自己紹介</a></li>
-                <li><a href="docs_001_003.html">3　相手を紹介する</a></li>
-                <li><a href="docs_001_004.html">4　退社時のあいさつ</a></li>
-                <li><a href="docs_001_005.html">5　電話</a></li>
-                <li><a href="docs_001_006.html">6　ファクス</a></li>
-                <li><a href="docs_001_007.html">7　電子メール</a></li>
-                <li><a href="docs_001_008.html">8　スケジュールを立てる</a></li>
-                <li><a href="docs_001_009.html">9　アポイントを取る</a></li>
-                <li><a href="docs_001_010.html">10　打ち合わせ</a></li>
-                <li><a href="docs_001_011.html">11　同僚</a></li>
-                <li><a href="docs_001_012.html">12　上司</a></li>
-                <li><a href="docs_001_013.html">13　ランチタイム</a></li>
-                <li><a href="docs_001_014.html">14　休憩</a></li>
-                <li><a href="docs_001_015.html">15　残業</a></li>
-                <li><a href="docs_001_016.html">16　飲み会</a></li>
-                <li><a href="docs_001_017.html">17　社員旅行</a></li>
-                <li><a href="docs_001_018.html">18　出迎え</a></li>
-                <li><a href="docs_001_019.html">19　受付</a></li>
-                <li><a href="docs_001_020.html">20　工場見学</a></li>
-                <li><a href="docs_001_021.html">21　会食</a></li>
-                <li><a href="docs_001_022.html">22　スモールトーク</a></li>
-                <li><a href="docs_001_023.html">23　見送り</a></li>
-                <li><a href="docs_001_024.html">24　事前予約</a></li>
-                <li><a href="docs_001_025.html">25　会社紹介</a></li>
-            </ul>
-        </div>
-        <div>
-            <ul class="pagination">
-                <li class="inactive"><a href="#">&laquo;</a></li> <!-- 前のページ -->
-                <li class="active"><a href="#">=</a></li>
-                <li><a href="docs_001_list_02.html">&raquo;</a></li> <!-- 次のページ -->
-            </ul
-        </div>
-    </div>
-</body>
 
+<div class="list-container">
+    <h1>コンテンツ一覧（１）</h1>
+
+    <a href="docs_001_001.html" class="link-item">1　出社時のあいさつ</a>
+    <a href="docs_001_002.html" class="link-item">2　自己紹介</a>
+    <a href="docs_001_003.html" class="link-item">3　相手を紹介する</a>
+    <a href="docs_001_004.html" class="link-item">4　退社時のあいさつ</a>
+    <a href="docs_001_005.html" class="link-item">5　電話</a>
+    <a href="docs_001_006.html" class="link-item">6　ファクス</a>
+    <a href="docs_001_007.html" class="link-item">7　電子メール</a>
+    <a href="docs_001_008.html" class="link-item">8　スケジュールを立てる</a>
+    <a href="docs_001_009.html" class="link-item">9　アポイントを取る</a>
+    <a href="docs_001_010.html" class="link-item">10　打ち合わせ</a>
+    <a href="docs_001_011.html" class="link-item">11　同僚</a>
+    <a href="docs_001_012.html" class="link-item">12　上司</a>
+    <a href="docs_001_013.html" class="link-item">13　ランチタイム</a>
+    <a href="docs_001_014.html" class="link-item">14　休憩</a>
+    <a href="docs_001_015.html" class="link-item">15　残業</a>
+    <a href="docs_001_016.html" class="link-item">16　飲み会</a>
+    <a href="docs_001_017.html" class="link-item">17　社員旅行</a>
+    <a href="docs_001_018.html" class="link-item">18　出迎え</a>
+    <a href="docs_001_019.html" class="link-item">19　受付</a>
+    <a href="docs_001_020.html" class="link-item">20　工場見学</a>
+    <a href="docs_001_021.html" class="link-item">21　会食</a>
+    <a href="docs_001_022.html" class="link-item">22　スモールトーク</a>
+    <a href="docs_001_023.html" class="link-item">23　見送り</a>
+    <a href="docs_001_024.html" class="link-item">24　事前予約</a>
+    <a href="docs_001_025.html" class="link-item">25　会社紹介</a>
+
+    <ul class="pagination">
+        <li class="inactive"><a href="#">&laquo;</a></li> <!-- 前のページ -->
+        <li class="active"><a href="#">|</a></li>
+        <li><a href="docs_001_list_02.html">&raquo;</a></li> <!-- 次のページ -->
+    </ul>
+</div>
+
+</body>
 </html>
