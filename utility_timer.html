@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ミリ秒タイマー（Start / Lap / Reset）</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#3b82f6; --muted:#93a3bf; --glass: rgba(255,255,255,0.03);
+      --radius:14px; --shadow: 0 6px 18px rgba(2,6,23,0.6);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071023 0%, #071a2a 100%);color:#e6eef6}
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .card{background:linear-gradient(180deg,var(--card), #071022);border-radius:var(--radius);padding:28px;width:460px;max-width:95%;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,0.03)}
+    .title{font-size:18px;margin:0 0 10px 0;color:var(--muted)}
+    .display{font-weight:700;font-size:48px;letter-spacing:1px;background:var(--glass);padding:18px;border-radius:10px;text-align:center;margin-bottom:18px}
+    .controls{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    button{appearance:none;border:0;padding:12px 18px;border-radius:10px;font-weight:600;cursor:pointer}
+    .start{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#02203a}
+    .pause{background:#f59e0b;color:#102018}
+    .lap{background:#10b981;color:#021a15}
+    .reset{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .laps{margin-top:20px;max-height:180px;overflow-y:auto;background:var(--glass);border-radius:10px;padding:10px;font-size:14px}
+    .laps table{width:100%;border-collapse:collapse}
+    .laps th,.laps td{padding:6px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,0.05)}
+    .laps th{text-align:left;color:var(--muted);}
+    .hint{font-size:12px;color:var(--muted);text-align:center;margin-top:12px}
+    footer{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
+    @media (max-width:460px){.display{font-size:38px;padding:14px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="card" role="region" aria-label="ミリ秒タイマー">
+      <p class="title">ミリ秒タイマー</p>
+      <div id="display" class="display" aria-live="polite">00:00.000</div>
+
+      <div class="controls">
+        <button id="startBtn" class="start" aria-pressed="false">Start</button>
+        <button id="lapBtn" class="lap">Lap</button>
+        <button id="resetBtn" class="reset">Reset</button>
+      </div>
+
+      <div class="laps" id="laps">
+        <table>
+          <thead><tr><th>#</th><th>Lap Time</th></tr></thead>
+          <tbody id="lapBody"></tbody>
+        </table>
+      </div>
+
+      <p class="hint">操作方法:<br> [Space]/[Enter]=Start・Pause, [L]=Lap, [R]=Reset</p>
+      <footer>Edge対応・ミリ秒精度: requestAnimationFrame + performance.now()</footer>
+    </section>
+  </div>
+
+  <script>
+    (function(){
+      const display = document.getElementById('display');
+      const startBtn = document.getElementById('startBtn');
+      const resetBtn = document.getElementById('resetBtn');
+      const lapBtn = document.getElementById('lapBtn');
+      const lapBody = document.getElementById('lapBody');
+
+      let running = false;
+      let startTime = 0;
+      let accumulated = 0;
+      let rafId = null;
+      let laps = [];
+
+      function format(ms){
+        const total = Math.floor(ms);
+        const minutes = Math.floor(total / 60000);
+        const seconds = Math.floor((total % 60000) / 1000);
+        const millis = total % 1000;
+        return `${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}.${String(millis).padStart(3,'0')}`;
+      }
+
+      function update(){
+        const now = performance.now();
+        const elapsed = accumulated + (running ? (now - startTime) : 0);
+        display.textContent = format(elapsed);
+        if(running){ rafId = requestAnimationFrame(update); }
+      }
+
+      function toggleStart(){
+        if(!running){
+          startTime = performance.now();
+          running = true;
+          startBtn.textContent = 'Pause';
+          startBtn.classList.replace('start','pause');
+          startBtn.setAttribute('aria-pressed','true');
+          rafId = requestAnimationFrame(update);
+        } else {
+          accumulated += performance.now() - startTime;
+          running = false;
+          startBtn.textContent = 'Start';
+          startBtn.classList.replace('pause','start');
+          startBtn.setAttribute('aria-pressed','false');
+          if(rafId){ cancelAnimationFrame(rafId); rafId = null; }
+          update();
+        }
+      }
+
+      function reset(){
+        running = false;
+        accumulated = 0;
+        startTime = 0;
+        laps = [];
+        if(rafId){ cancelAnimationFrame(rafId); rafId = null; }
+        startBtn.textContent = 'Start';
+        startBtn.classList.replace('pause','start');
+        startBtn.setAttribute('aria-pressed','false');
+        display.textContent = '00:00.000';
+        lapBody.innerHTML = '';
+      }
+
+      function recordLap(){
+        const now = performance.now();
+        const elapsed = accumulated + (running ? (now - startTime) : 0);
+        const lapTime = format(elapsed);
+        laps.push(lapTime);
+
+        const tr = document.createElement('tr');
+        const td1 = document.createElement('td');
+        const td2 = document.createElement('td');
+        td1.textContent = laps.length;
+        td2.textContent = lapTime;
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        lapBody.appendChild(tr);
+        // スクロールを一番下に
+        tr.scrollIntoView({behavior:'smooth', block:'end'});
+      }
+
+      startBtn.addEventListener('click', toggleStart);
+      resetBtn.addEventListener('click', reset);
+      lapBtn.addEventListener('click', recordLap);
+
+      window.addEventListener('keydown', e => {
+        if(e.repeat) return;
+        switch(e.key){
+          case ' ':
+          case 'Enter':
+            e.preventDefault(); toggleStart(); break;
+          case 'r': case 'R':
+            reset(); break;
+          case 'l': case 'L':
+            recordLap(); break;
+        }
+      });
+
+      display.textContent = '00:00.000';
+    })();
+  </script>
+</body>
+</html>
